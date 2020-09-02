@@ -1,3 +1,4 @@
 ---
 apache::install_name: 'apache2'
 apache::config_path: '/home/joel/apache2.conf'
+apache::service_name: 'apache2'
