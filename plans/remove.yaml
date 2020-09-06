@@ -1,0 +1,16 @@
+---
+steps:
+  - task: apache::ctl
+    target: centos-agent.4trifhadyawergoizhdiqh34le.bx.internal.cloudapp.net
+    description: "Shutdown apache service"
+    parameters:
+      command: graceful-stop
+  - command: "cp /etc/httpd/logs/access_log /tmp/apache_access"
+    target: centos-agent.4trifhadyawergoizhdiqh34le.bx.internal.cloudapp.net
+    description: "Copy the apache access logs"
+  - task: package
+    target: centos-agent.4trifhadyawergoizhdiqh34le.bx.internal.cloudapp.net
+    description: "Remove apache"
+    parameters:
+      action: uninstall
+      name: httpd
